@@ -52,28 +52,32 @@ export default function Input(props) {
   };
   return (
     <>
-      <Box
-        component="form"
-        sx={{
-          "& .MuiTextField-root": { m: 1, width: "80%" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <div>
-          <TextField
-            label="Type Here"
-            multiline
-            rows={4}
-            value={
-              mistakes > 6
-                ? props.input.substring(0, props.input.length - 1)
-                : props.input
-            }
-            onChange={onChange}
-          />
-        </div>
-      </Box>
+      {!props.text ? (
+        <></>
+      ) : (
+        <Box
+          component="form"
+          sx={{
+            "& .MuiTextField-root": { m: 1, width: "80%" },
+          }}
+          noValidate
+          autoComplete="off"
+        >
+          <div>
+            <TextField
+              label="Type Here"
+              multiline
+              rows={4}
+              value={
+                mistakes > 6
+                  ? props.input.substring(0, props.input.length - 1)
+                  : props.input
+              }
+              onChange={onChange}
+            />
+          </div>
+        </Box>
+      )}
     </>
   );
 }
