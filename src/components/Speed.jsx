@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 
 export default function Speed(props) {
@@ -39,20 +39,20 @@ export default function Speed(props) {
   return (
     <>
       <Box sx={{ m: 1, width: "80%" }} noValidate autoComplete="off">
-        <p>Time Elapsed: {elapsedTime} seconds</p>
-        <p>Character Count: {charCount}</p>
-        <p>Word Count: {wordCount}</p>
+        <Typography>Time Elapsed: {elapsedTime} seconds</Typography>
+        <Typography>Character Count: {charCount}</Typography>
+        <Typography>Word Count: {wordCount}</Typography>
         {props.speed.instantaneous >= 0 && (
-          <p>
+          <Typography>
             Instantaneous Speed: {props.speed.instantaneous.toFixed(0)} characters per
             minute
-          </p>
+          </Typography>
         )}
         {props.speed.cpm >= 0 && (
-          <p>CPM (Characters per minute): {props.speed.cpm.toFixed(0)}</p>
+          <Typography>CPM (Characters per minute): {props.speed.cpm.toFixed(0)}</Typography>
         )}
         {props.speed.wpm >= 0 && (
-          <p>WPM (Words per minute): {props.speed.wpm.toFixed(0)}</p>
+          <Typography>WPM (Words per minute): {props.speed.wpm.toFixed(0)}</Typography>
         )}
       </Box>
     </>

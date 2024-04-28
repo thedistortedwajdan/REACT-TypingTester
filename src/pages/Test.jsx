@@ -70,62 +70,72 @@ export default function Test() {
         onKeyUp={handleKeyUp}
         tabIndex={0}
       >
-        {isMobile ? (
-          <>
-            <h2>NOT AVAILABLE ON MOBILE 🥰</h2>
-          </>
-        ) : (
-          <>
-            {!done ? (
-              <>
-                <Speed
-                  speed={speed}
-                  setSpeed={setSpeed}
-                  input={input}
-                  done={done}
-                  startTime={startTime}
-                  setStartTime={setStartTime}
-                />
+        <Box height={"100vh"}>
+          {isMobile ? (
+            <>
+              <h2>NOT AVAILABLE ON MOBILE 🥰</h2>
+            </>
+          ) : (
+            <>
+              {!done ? (
+                <>
+                  <Speed
+                    speed={speed}
+                    setSpeed={setSpeed}
+                    input={input}
+                    done={done}
+                    startTime={startTime}
+                    setStartTime={setStartTime}
+                  />
 
-                <Text
-                  done={done}
-                  text={text}
-                  settext={settext}
-                  length={length}
-                  matching={matching}
-                />
-                <Input
-                  done={done}
-                  setdone={setdone}
-                  startTime={startTime}
-                  setStartTime={setStartTime}
-                  input={input}
-                  setinput={setinput}
-                  text={text}
-                  setlength={setlength}
-                  setmatching={setmatching}
-                />
-              </>
-            ) : (
-              <>
+                  <Text
+                    done={done}
+                    text={text}
+                    settext={settext}
+                    length={length}
+                    matching={matching}
+                  />
+                  <Input
+                    done={done}
+                    setdone={setdone}
+                    startTime={startTime}
+                    setStartTime={setStartTime}
+                    input={input}
+                    setinput={setinput}
+                    text={text}
+                    setlength={setlength}
+                    setmatching={setmatching}
+                  />
+                </>
+              ) : (
+                <>
+                  <Box
+                    sx={{ m: 1, width: "80%" }}
+                    noValidate
+                    autoComplete="off"
+                  >
+                    <h2>YOUR SPEED</h2>
+                    {speed.cpm >= 0 && (
+                      <p>CPM (Characters per minute): {speed.cpm.toFixed(0)}</p>
+                    )}
+                    {speed.wpm >= 0 && (
+                      <p>WPM (Words per minute): {speed.wpm.toFixed(0)}</p>
+                    )}
+                  </Box>
+                </>
+              )}
+              {!text ? (
+                <></>
+              ) : (
                 <Box sx={{ m: 1, width: "80%" }} noValidate autoComplete="off">
-                  <h2>YOUR SPEED</h2>
-                  {speed.cpm >= 0 && (
-                    <p>CPM (Characters per minute): {speed.cpm.toFixed(0)}</p>
-                  )}
-                  {speed.wpm >= 0 && (
-                    <p>WPM (Words per minute): {speed.wpm.toFixed(0)}</p>
-                  )}
+                  <Button variant="contained" onClick={onClick}>
+                    RESET
+                  </Button>
                 </Box>
-              </>
-            )}
-            <Box sx={{ m: 1, width: "80%" }} noValidate autoComplete="off">
-              <Button variant="contained" onClick={onClick}>
-                RESET
-              </Button>
-            </Box>
-          </>
-        )}
+              )}
+            </>
+          )}
+        </Box>
       </div>
     </>
   );
