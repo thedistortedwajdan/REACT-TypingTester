@@ -19,7 +19,10 @@ export default function Test() {
     if (e.which === 17) {
       setController(true);
     }
-    if ((e.which === 85 || e.which === 67) && controller === true) {
+    if (
+      (e.which === 85 || e.which === 67 || e.which === 86) &&
+      controller === true
+    ) {
       e.preventDefault();
     }
   };
@@ -62,7 +65,8 @@ export default function Test() {
 
   return (
     <>
-      <div
+      <Box
+        component={"div"}
         onContextMenu={handleContextMenu}
         onMouseDown={handleMouseDown}
         onMouseUp={handleMouseUp}
@@ -136,7 +140,7 @@ export default function Test() {
             </>
           )}
         </Box>
-      </div>
+      </Box>
     </>
   );
 }
