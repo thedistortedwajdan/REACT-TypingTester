@@ -2,7 +2,7 @@
   "name": "type-racer",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://{thedistortedwajdan}.github.io/{typing-tester}/",
+  "homepage": "https://{thedistortedwajdan}.github.io/{REACT-TypingTester}/",
   "type": "module",
   "scripts": {
     "predeploy": "npm run build",
